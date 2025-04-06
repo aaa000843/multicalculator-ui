@@ -62,7 +62,7 @@ export default function PasswordGenerator() {
 
       let result = '';
       const array = new Uint32Array(options.length);
-      // crypto.getRandomValues(array);
+      crypto.getRandomValues(array);
 
       for (let i = 0; i < options.length; i++) {
         result += chars[array[i] % chars.length];
@@ -119,16 +119,23 @@ export default function PasswordGenerator() {
       if (regex.test(pwd)) score += points;
     }
 
-    const strength: { [key: number]: PasswordStrength } = {
-      0: { score: 0, label: 'Very Weak', color: 'bg-red-500' },
-      1: { score: 20, label: 'Very Weak', color: 'bg-red-500' },
-      2: { score: 40, label: 'Weak', color: 'bg-orange-500' },
-      3: { score: 60, label: 'Medium', color: 'bg-yellow-500' },
-      4: { score: 80, label: 'Strong', color: 'bg-green-500' },
-      5: { score: 100, label: 'Very Strong', color: 'bg-green-600' }
+    // Calculate percentage score (0-100)
+    const percentageScore = Math.min((score / 8) * 100, 100);
+
+    const strength: { [key: number]: Omit<PasswordStrength, 'score'> } = {
+      0: { label: 'Very Weak', color: 'bg-red-500' },
+      1: { label: 'Very Weak', color: 'bg-red-500' },
+      2: { label: 'Weak', color: 'bg-orange-500' },
+      3: { label: 'Medium', color: 'bg-yellow-500' },
+      4: { label: 'Strong', color: 'bg-green-500' },
+      5: { label: 'Very Strong', color: 'bg-green-600' }
     };
 
-    return strength[Math.min(Math.floor(score / 2), 5)];
+    const strengthLevel = Math.min(Math.floor(score / 2), 5);
+    return {
+      score: percentageScore,
+      ...strength[strengthLevel]
+    };
   };
 
   const strength = calculateStrength(password);
@@ -245,7 +252,7 @@ export default function PasswordGenerator() {
                           {strength.label}
                         </span>
                       </div>
-                      <Progress value={strength.score} className={`h-2 ${strength.color}`} />
+                      <Progress value={strength.score} indicatorColor={strength.color} className="h-2" />
                     </div>
                   </div>
                 )}
@@ -258,7 +265,6 @@ export default function PasswordGenerator() {
                     <li>• Add numbers and special characters</li>
                     <li>• Avoid using personal information</li>
                     <li>• Use different passwords for different accounts</li>
-                    <li>• Consider using a password manager</li>
                   </ul>
                 </div>
               </div>
