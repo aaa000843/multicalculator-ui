@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Calculator, ChevronDown } from 'lucide-react';
@@ -9,11 +9,26 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
+  // Handle clicks outside of the dropdown menu
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setActiveCategory(null);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const menuItems = {
     'Financial Tools': [
@@ -90,19 +105,19 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-8">
+          <div className="hidden lg:flex space-x-8" ref={menuRef}>
             {Object.entries(menuItems).map(([category, items]) => (
               <div 
                 key={category} 
                 className="relative group"
-                onMouseEnter={() => setActiveCategory(category)}
-                onMouseLeave={() => setActiveCategory(null)}
               >
                 <Link 
                   href={`/${categoryRoutes[category as keyof typeof categoryRoutes]}`}
-                  className={`flex items-center space-x-1 py-2 hover:text-purple-200 transition-colors relative ${
+                  className={`flex items-center space-x-1 py-2 hover:text-yellow-200 transition-colors relative ${
                     isCategoryActive(category) ? 'text-purple-200' : ''
                   }`}
+                  onMouseEnter={() => setActiveCategory(category)}
+                  onClick={() => setActiveCategory(null)}
                 >
                   <span>{category}</span>
                   <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
@@ -111,7 +126,11 @@ const Header = () => {
                   )}
                 </Link>
                 {activeCategory === category && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50">
+                  <div 
+                    className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50"
+                    onMouseEnter={() => setActiveCategory(category)}
+                    onMouseLeave={() => setActiveCategory(null)}
+                  >
                     <div className="py-2">
                       {items.map((item) => {
                         const href = `/${categoryRoutes[category as keyof typeof categoryRoutes]}/${getSlug(item)}`;
@@ -122,7 +141,7 @@ const Header = () => {
                             className={`block px-4 py-2 text-sm transition-colors relative ${
                               isActive(href)
                                 ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
-                                : 'text-gray-700 hover:bg-purple-50'
+                                : 'text-gray-700 hover:text-purple-700 hover:bg-purple-50'
                             }`}
                           >
                             {item}
@@ -152,15 +171,15 @@ const Header = () => {
         {/* Mobile Navigation */}
         <div 
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+            isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="py-4">
+          <div className="py-4 overflow-y-auto max-h-[400px] scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent">
             {Object.entries(menuItems).map(([category, items]) => (
               <div key={category} className="mb-6">
                 <Link
                   href={`/${categoryRoutes[category as keyof typeof categoryRoutes]}`}
-                  className={`font-semibold mb-2 hover:text-purple-200 transition-colors block relative ${
+                  className={`font-semibold mb-2 hover:text-yellow-200 transition-colors block relative ${
                     isCategoryActive(category) ? 'text-purple-200' : 'text-purple-100'
                   }`}
                 >
@@ -179,7 +198,7 @@ const Header = () => {
                         className={`block py-1 transition-colors relative pl-3 ${
                           isActive(href)
                             ? 'text-purple-200 font-medium'
-                            : 'hover:text-purple-300'
+                            : 'hover:text-yellow-200'
                         }`}
                       >
                         {item}

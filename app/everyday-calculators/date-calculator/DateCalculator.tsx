@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { AlertCircle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { addDays, addWeeks, addMonths, addYears, isWeekend, differenceInDays, differenceInBusinessDays } from 'date-fns';
+import { addDays, addWeeks, addMonths, addYears, isWeekend, differenceInDays, differenceInBusinessDays, differenceInYears, differenceInMonths } from 'date-fns';
 
 type DateUnit = 'days' | 'weeks' | 'months' | 'years';
 type CalculationType = 'add' | 'subtract' | 'difference';
@@ -19,6 +19,9 @@ interface DateResult {
   totalDays?: number;
   businessDays?: number;
   weekends?: number;
+  years?: number;
+  months?: number;
+  remainingDays?: number;
 }
 
 export default function DateCalculator() {
@@ -50,10 +53,22 @@ export default function DateCalculator() {
     const businessDays = differenceInBusinessDays(end, start);
     const weekends = totalDays - businessDays;
 
+    // Calculate years, months, and remaining days
+    const years = differenceInYears(end, start);
+    let remainingMonths = differenceInMonths(end, start) % 12;
+    
+    // Calculate remaining days after subtracting full months
+    const tempDate = addYears(start, years);
+    const dateWithMonths = addMonths(tempDate, remainingMonths);
+    const remainingDays = differenceInDays(end, dateWithMonths);
+
     return {
       totalDays,
       businessDays,
-      weekends
+      weekends,
+      years,
+      months: remainingMonths,
+      remainingDays
     };
   };
 
@@ -328,24 +343,35 @@ export default function DateCalculator() {
                       </p>
                     </div>
                   ) : (
-                    <div className="grid gap-4 sm:grid-cols-3">
+                    <div className="space-y-4">
                       <div className="p-4 bg-purple-50 rounded-lg">
-                        <p className="text-sm text-indigo-600 font-medium mb-1">Total Days</p>
+                        <p className="text-sm text-indigo-600 font-medium mb-2">Detailed Duration</p>
                         <p className="text-lg font-bold text-indigo-600">
-                          {result.totalDays?.toLocaleString()}
+                          {result.years ? `${result.years} year${result.years !== 1 ? 's' : ''} ` : ''}
+                          {result.months ? `${result.months} month${result.months !== 1 ? 's' : ''} ` : ''}
+                          {result.remainingDays ? `${result.remainingDays} day${result.remainingDays !== 1 ? 's' : ''}` : ''}
                         </p>
                       </div>
-                      <div className="p-4 bg-purple-50 rounded-lg">
-                        <p className="text-sm text-indigo-600 font-medium mb-1">Business Days</p>
-                        <p className="text-lg font-bold text-indigo-600">
-                          {result.businessDays?.toLocaleString()}
-                        </p>
-                      </div>
-                      <div className="p-4 bg-purple-50 rounded-lg">
-                        <p className="text-sm text-indigo-600 font-medium mb-1">Weekends</p>
-                        <p className="text-lg font-bold text-indigo-600">
-                          {result.weekends?.toLocaleString()}
-                        </p>
+                      
+                      <div className="grid gap-4 sm:grid-cols-3">
+                        <div className="p-4 bg-purple-50 rounded-lg">
+                          <p className="text-sm text-indigo-600 font-medium mb-1">Total Days</p>
+                          <p className="text-lg font-bold text-indigo-600">
+                            {result.totalDays?.toLocaleString()}
+                          </p>
+                        </div>
+                        <div className="p-4 bg-purple-50 rounded-lg">
+                          <p className="text-sm text-indigo-600 font-medium mb-1">Business Days</p>
+                          <p className="text-lg font-bold text-indigo-600">
+                            {result.businessDays?.toLocaleString()}
+                          </p>
+                        </div>
+                        <div className="p-4 bg-purple-50 rounded-lg">
+                          <p className="text-sm text-indigo-600 font-medium mb-1">Weekends</p>
+                          <p className="text-lg font-bold text-indigo-600">
+                            {result.weekends?.toLocaleString()}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   )}

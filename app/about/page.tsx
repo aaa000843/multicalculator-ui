@@ -9,48 +9,77 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <PageLayout title="About Us">
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-        <p>
-          At MultiCalculator, we believe that accurate calculations should be accessible to everyone. 
-          Our mission is to provide a comprehensive suite of calculation tools that help people make 
-          informed decisions in their daily lives, whether it's managing finances, tracking fitness goals, 
-          solving mathematical problems, or handling everyday calculations.
-        </p>
-      </section>
+      <div className="max-w-4xl mx-auto">
+        <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
+          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Our Mission</h2>
+          <p className="text-gray-600">
+            At MultiCalculator, we believe that accurate calculations should be accessible to everyone. 
+            Our mission is to provide a comprehensive suite of calculation tools that help people make 
+            informed decisions in their daily lives, whether it's managing finances, tracking fitness goals, 
+            solving mathematical problems, or handling everyday calculations.
+          </p>
+        </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">What We Offer</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          <li>Financial Calculators for smart money management</li>
-          <li>Health & Fitness tools to track your wellness journey</li>
-          <li>Mathematical solvers for academic and professional needs</li>
-          <li>Everyday calculators for common tasks</li>
-        </ul>
-      </section>
+        <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
+          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">What We Offer</h2>
+          <ul className="list-none pl-0 space-y-2 text-gray-600">
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Financial Calculators for smart money management</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Health & Fitness tools to track your wellness journey</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Mathematical solvers for academic and professional needs</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Everyday calculators for common tasks</span>
+            </li>
+          </ul>
+        </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Our Commitment</h2>
-        <p>
-          We are committed to providing:
-        </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li>Accurate and reliable calculations</li>
-          <li>User-friendly interfaces</li>
-          <li>Regular updates and improvements</li>
-          <li>Comprehensive documentation and guides</li>
-          <li>Responsive customer support</li>
-        </ul>
-      </section>
+        <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
+          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Our Commitment</h2>
+          <p className="text-gray-600 mb-4">
+            We are committed to providing:
+          </p>
+          <ul className="list-none pl-0 space-y-2 text-gray-600">
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Accurate and reliable calculations</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>User-friendly interfaces</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Regular updates and improvements</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Comprehensive documentation and guides</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Responsive customer support</span>
+            </li>
+          </ul>
+        </section>
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-        <p>
-          We value your feedback and suggestions. If you have any questions or comments, 
-          please visit our <a href="/contact" className="text-primary hover:underline">Contact page</a> 
-          to get in touch with our team.
-        </p>
-      </section>
+        <section className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
+          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Get in Touch</h2>
+          <p className="text-gray-600">
+            We value your feedback and suggestions. If you have any questions or comments, 
+            please visit our <a href="/contact" className="text-indigo-600 hover:text-purple-600 transition-colors">Contact </a> 
+             to get in touch with our team.
+          </p>
+        </section>
+      </div>
     </PageLayout>
   );
 } 

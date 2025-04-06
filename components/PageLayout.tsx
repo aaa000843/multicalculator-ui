@@ -10,7 +10,7 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
     <>
       <div className="flex justify-between items-start mb-6">
-        <h1 className="text-3xl font-bold text-navy-800 dark:text-white">
+        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
           {title}
         </h1>
         <Breadcrumb />
