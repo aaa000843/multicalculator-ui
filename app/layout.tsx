@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import env from '@/constants/env';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { ToastContainer } from '@/lib/toast';
+
+import { GLOBAL_TOAST_ID } from '@/constants/toast';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -50,6 +53,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <ToastContainer containerId={GLOBAL_TOAST_ID} />
         </ThemeProvider>
       </body>
     </html>

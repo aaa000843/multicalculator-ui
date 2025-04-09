@@ -1,21 +1,50 @@
 'use client';
 
 import { useState } from 'react';
-import env from '@/constants/env';
+import { FeedbackRequest, FeedbackResponse } from './models/feedback';
+import { toast } from "@/lib/toast";
+import { request, requestErrorMessage } from '@/lib/axios/request';
+import { RequestError } from '@/lib/axios/@types';
 
 export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState<FeedbackRequest>({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await request<FeedbackResponse>('/api/v1/feedback', {method: "POST", data: formData});
+     
+      toast.success('Thank you for your feedback!');
+      setFormData({ name: '', email: '', message: '' });
+      
+    } catch (error) {
+      
+      const errorMessage = requestErrorMessage(error as RequestError, "Failed to send feedback. Please try again later.");
+      toast.error(errorMessage);
+      console.error('Feedback submission error:', errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
-      <form 
-        className="space-y-6" 
-        method="post" 
-        action={`mailto:${env.CONTACT_EMAIL}?subject=${[subject, "by", name].join(' ')}&body=${message}`}
-      >
+      <form className="space-y-6" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
             Name
@@ -26,8 +55,8 @@ export default function ContactForm() {
             name="name"
             className="w-full px-4 py-2 border rounded-md bg-white text-gray-700 border-purple-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formData.name}
+            onChange={handleChange}
           />
         </div>
 
@@ -41,23 +70,8 @@ export default function ContactForm() {
             name="email"
             className="w-full px-4 py-2 border rounded-md bg-white text-gray-700 border-purple-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-700">
-            Subject
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            className="w-full px-4 py-2 border rounded-md bg-white text-gray-700 border-purple-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            required
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
 
@@ -71,17 +85,18 @@ export default function ContactForm() {
             rows={6}
             className="w-full px-4 py-2 border rounded-md bg-white text-gray-700 border-purple-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             required
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
         </div>
 
         <div className="text-center">
           <button
             type="submit"
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            disabled={isSubmitting}
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </div>
       </form>
