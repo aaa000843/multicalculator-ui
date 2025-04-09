@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CategoryPage from '@/components/CategoryPage';
 
 export const metadata: Metadata = {
-  title: 'Math Solver & Calculation Tools | MultiCalculator',
+  title: 'Math Solver & Calculation Tools | Calcifai',
   description: 'Access powerful mathematical tools including scientific calculator, fraction calculator, percentage calculator, and more. Solve complex math problems with ease.',
   keywords: 'scientific calculator, fraction calculator, percentage calculator, random number generator, triangle calculator, standard deviation calculator, math solver',
 };

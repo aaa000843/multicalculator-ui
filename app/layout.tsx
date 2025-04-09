@@ -11,13 +11,18 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.APP_URL),
-  title: 'MultiCalculator - All-in-One Calculator Suite',
+  title: 'Calcifai - All-in-One Calculator Suite',
   description: 'Access a comprehensive suite of calculators for finance, health, math, and everyday calculations. Get accurate results with our easy-to-use tools.',
   openGraph: {
-    title: 'MultiCalculator - All-in-One Calculator Suite',
+    title: 'Calcifai - All-in-One Calculator Suite',
     description: 'Access a comprehensive suite of calculators for finance, health, math, and everyday calculations. Get accurate results with our easy-to-use tools.',
     url: env.APP_URL,
-    siteName: 'MultiCalculator',
+    siteName: 'Calcifai',
+  },
+  icons: {
+    icon: '/assets/calcifai.jpg',
+    shortcut: '/assets/calcifai.jpg',
+    apple: '/assets/calcifai.jpg',
   },
 };
 

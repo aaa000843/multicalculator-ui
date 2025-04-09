@@ -19,12 +19,12 @@ const CalculatorLayout = ({
   return (
     <>
       <Head>
-        <title>{`${title} | MultiCalculator`}</title>
+        <title>{`${title} | Calcifai`}</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content={`${title} | MultiCalculator`} />
+        <meta property="og:title" content={`${title} | Calcifai`} />
         <meta property="og:description" content={description} />
-        <meta name="twitter:title" content={`${title} | MultiCalculator`} />
+        <meta name="twitter:title" content={`${title} | Calcifai`} />
         <meta name="twitter:description" content={description} />
       </Head>
       <div className="min-h-screen bg-gray-50">

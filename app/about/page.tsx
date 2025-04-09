@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 
 export const metadata: Metadata = {
-  title: 'About Us | MultiCalculator',
-  description: 'Learn about MultiCalculator and our mission to provide comprehensive calculation tools for everyone.',
+  title: 'About Us | Calcifai',
+  description: 'Learn about Calcifai and our mission to provide comprehensive calculation tools for everyone.',
 };
 
 export default function About() {
@@ -13,7 +13,7 @@ export default function About() {
         <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
           <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Our Mission</h2>
           <p className="text-gray-600">
-            At MultiCalculator, we believe that accurate calculations should be accessible to everyone. 
+            At Calcifai, we believe that accurate calculations should be accessible to everyone. 
             Our mission is to provide a comprehensive suite of calculation tools that help people make 
             informed decisions in their daily lives, whether it's managing finances, tracking fitness goals, 
             solving mathematical problems, or handling everyday calculations.

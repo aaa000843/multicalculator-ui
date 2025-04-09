@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -6,9 +7,18 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-100">About Us</h3>
+            <div className="flex items-center space-x-2 mb-4">
+              <Image 
+                src="/assets/calcifai.jpg" 
+                alt="Calcifai Logo" 
+                width={32} 
+                height={32} 
+                className="rounded-full"
+              />
+              <h3 className="text-lg font-semibold text-purple-100">Calcifai</h3>
+            </div>
             <p className="text-sm text-purple-200">
-              MultiCalculator provides a comprehensive suite of calculators and tools for all your needs,
+              Calcifai provides a comprehensive suite of calculators and tools for all your needs,
               from financial planning to fitness tracking.
             </p>
           </div>
@@ -45,7 +55,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-purple-400/30 flex items-center justify-center">
           <p className="text-sm text-purple-200">
-            © {new Date().getFullYear()} MultiCalculator. All rights reserved.
+            © {new Date().getFullYear()} Calcifai. All rights reserved.
           </p>
         </div>
       </div>

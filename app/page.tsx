@@ -3,24 +3,24 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'MultiCalculator - Your All-in-One Calculator Solution',
+  title: 'Calcifai - Your All-in-One Calculator Solution',
   description: 'Access a comprehensive suite of calculators for finance, fitness, mathematics, and everyday calculations. Free online calculator tools for all your needs.',
   keywords: 'calculator, financial calculator, fitness calculator, math solver, unit converter, online calculator',
   openGraph: {
-    title: 'MultiCalculator - Your All-in-One Calculator Solution',
+    title: 'Calcifai - Your All-in-One Calculator Solution',
     description: 'Comprehensive suite of calculators for finance, fitness, mathematics, and everyday calculations.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f',
         width: 1200,
         height: 630,
-        alt: 'MultiCalculator - Online Calculator Tools',
+        alt: 'Calcifai - Online Calculator Tools',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MultiCalculator - Your All-in-One Calculator Solution',
+    title: 'Calcifai - Your All-in-One Calculator Solution',
     description: 'Comprehensive suite of calculators for finance, fitness, mathematics, and everyday calculations.',
     images: ['https://images.unsplash.com/photo-1554224155-6726b3ff858f'],
   },
@@ -37,7 +37,7 @@ export default function Home() {
     {
       title: 'Health & Fitness Trackers',
       description: 'Track and monitor your health metrics with our advanced fitness calculators',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
       link: '/health-fitness',
     },
     {
@@ -114,7 +114,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section className="text-center space-y-8 py-8">
-          <h2 className="text-3xl font-bold text-indigo-600">Why Choose MultiCalculator?</h2>
+          <h2 className="text-3xl font-bold text-indigo-600">Why Choose Calcifai?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-purple-600 mb-3">Easy to Use</h3>

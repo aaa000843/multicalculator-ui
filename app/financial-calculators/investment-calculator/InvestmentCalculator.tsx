@@ -316,42 +316,44 @@ export default function InvestmentCalculator() {
 
                     <div className="mt-6">
                       <h3 className="font-semibold text-indigo-600 mb-4">Yearly Breakdown</h3>
-                      <div className="overflow-x-auto">
-                        <table className="min-w-full divide-y divide-purple-200">
-                          <thead>
-                            <tr>
-                              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Year</th>
-                              <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Balance</th>
-                              <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Contributions</th>
-                              <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Interest</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-purple-100">
-                            {results.yearlyBreakdown.map((year) => (
-                              <tr key={year.year} className="hover:bg-purple-50">
-                                <td className="px-4 py-2 text-sm text-gray-600">{year.year}</td>
-                                <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                  ${year.balance.toLocaleString(undefined, {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                  })}
-                                </td>
-                                <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                  ${year.contributions.toLocaleString(undefined, {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                  })}
-                                </td>
-                                <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                  ${year.interest.toLocaleString(undefined, {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                  })}
-                                </td>
+                      <div className="overflow-x-auto -mx-4 sm:mx-0">
+                        <div className="min-w-[600px] px-4 sm:px-0">
+                          <table className="min-w-full divide-y divide-purple-200">
+                            <thead>
+                              <tr>
+                                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Year</th>
+                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Balance</th>
+                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Contributions</th>
+                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Interest</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody className="divide-y divide-purple-100">
+                              {results.yearlyBreakdown.map((year) => (
+                                <tr key={year.year} className="hover:bg-purple-50">
+                                  <td className="px-4 py-2 text-sm text-gray-600">{year.year}</td>
+                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                    ${year.balance.toLocaleString(undefined, {
+                                      minimumFractionDigits: 2,
+                                      maximumFractionDigits: 2
+                                    })}
+                                  </td>
+                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                    ${year.contributions.toLocaleString(undefined, {
+                                      minimumFractionDigits: 2,
+                                      maximumFractionDigits: 2
+                                    })}
+                                  </td>
+                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                    ${year.interest.toLocaleString(undefined, {
+                                      minimumFractionDigits: 2,
+                                      maximumFractionDigits: 2
+                                    })}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>

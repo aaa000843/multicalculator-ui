@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CategoryPage from '@/components/CategoryPage';
 
 export const metadata: Metadata = {
-  title: 'Everyday Calculators & Tools | MultiCalculator',
+  title: 'Everyday Calculators & Tools | Calcifai',
   description: 'Simplify your daily calculations with our everyday calculator tools. Calculate age, dates, time, hours, GPA, and grades with ease.',
   keywords: 'age calculator, date calculator, time calculator, hours calculator, GPA calculator, grade calculator, everyday tools',
 };

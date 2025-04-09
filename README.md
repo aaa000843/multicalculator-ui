@@ -1,6 +1,6 @@
-# MultiCalculator
+# Calcifai
 
-A comprehensive, modern calculator suite built with Next.js 13, Radix UI, and Tailwind CSS. MultiCalculator provides a collection of useful calculators for financial planning, mathematics, health metrics, and everyday calculations.
+A comprehensive, modern calculator suite built with Next.js 13, Radix UI, and Tailwind CSS. Calcifai provides a collection of useful calculators for financial planning, mathematics, health metrics, and everyday calculations.
 
 ## Features
 

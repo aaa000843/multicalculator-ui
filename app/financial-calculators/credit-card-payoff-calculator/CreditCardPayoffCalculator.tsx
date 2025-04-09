@@ -397,49 +397,51 @@ export default function CreditCardPayoffCalculator() {
 
                       <div className="mt-6">
                         <h3 className="font-semibold text-indigo-600 mb-4">Payment Schedule</h3>
-                        <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y divide-purple-200">
-                            <thead>
-                              <tr>
-                                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Month</th>
-                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Payment</th>
-                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Principal</th>
-                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Interest</th>
-                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Balance</th>
-                              </tr>
-                            </thead>
-                            <tbody className="divide-y divide-purple-100">
-                              {result.amortizationSchedule.map((month) => (
-                                <tr key={month.month} className="hover:bg-purple-50">
-                                  <td className="px-4 py-2 text-sm text-gray-600">{month.month}</td>
-                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                    ${month.payment.toLocaleString(undefined, {
-                                      minimumFractionDigits: 2,
-                                      maximumFractionDigits: 2
-                                    })}
-                                  </td>
-                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                    ${month.principal.toLocaleString(undefined, {
-                                      minimumFractionDigits: 2,
-                                      maximumFractionDigits: 2
-                                    })}
-                                  </td>
-                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                    ${month.interest.toLocaleString(undefined, {
-                                      minimumFractionDigits: 2,
-                                      maximumFractionDigits: 2
-                                    })}
-                                  </td>
-                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                    ${month.remainingBalance.toLocaleString(undefined, {
-                                      minimumFractionDigits: 2,
-                                      maximumFractionDigits: 2
-                                    })}
-                                  </td>
+                        <div className="overflow-x-auto -mx-4 sm:mx-0">
+                          <div className="min-w-[800px] px-4 sm:px-0">
+                            <table className="min-w-full divide-y divide-purple-200">
+                              <thead>
+                                <tr>
+                                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Month</th>
+                                  <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Payment</th>
+                                  <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Principal</th>
+                                  <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Interest</th>
+                                  <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Balance</th>
                                 </tr>
-                              ))}
-                            </tbody>
-                          </table>
+                              </thead>
+                              <tbody className="divide-y divide-purple-100">
+                                {result.amortizationSchedule.map((month) => (
+                                  <tr key={month.month} className="hover:bg-purple-50">
+                                    <td className="px-4 py-2 text-sm text-gray-600">{month.month}</td>
+                                    <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                      ${month.payment.toLocaleString(undefined, {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                      })}
+                                    </td>
+                                    <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                      ${month.principal.toLocaleString(undefined, {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                      })}
+                                    </td>
+                                    <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                      ${month.interest.toLocaleString(undefined, {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                      })}
+                                    </td>
+                                    <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                      ${month.remainingBalance.toLocaleString(undefined, {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                      })}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>

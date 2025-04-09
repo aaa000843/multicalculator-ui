@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | MultiCalculator',
-  description: 'Learn about how MultiCalculator protects and handles your data.',
+  title: 'Privacy Policy | Calcifai',
+  description: 'Learn about how Calcifai protects and handles your data.',
 };
 
 export default function Privacy() {
@@ -15,26 +15,42 @@ export default function Privacy() {
             Last updated: {new Date().toLocaleDateString()}
           </p>
           <p className="mb-4 text-gray-600">
-            At MultiCalculator, we take your privacy seriously. This Privacy Policy explains how we collect, 
-            use, and protect your personal information when you use our website.
+            At Calcifai, we respect your privacy. This Privacy Policy explains how we handle your information when you use our website.
           </p>
         </section>
 
         <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
           <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Information We Collect</h2>
-          <p className="mb-4 text-gray-600">We collect information that you provide directly to us, including:</p>
+          <p className="mb-4 text-gray-600">We only collect information that you voluntarily provide through our contact form, including:</p>
           <ul className="list-none pl-0 space-y-2 mb-4 text-gray-600">
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Calculation inputs and results</span>
+              <span>Your name</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Contact information when you reach out to us</span>
+              <span>Email address</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Usage data and preferences</span>
+              <span>Your message</span>
+            </li>
+          </ul>
+          <p className="text-gray-600">
+            We use Google Analytics to understand how visitors use our website. This helps us improve our services. Google Analytics collects anonymous information about:
+          </p>
+          <ul className="list-none pl-0 space-y-2 text-gray-600">
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Pages visited</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Time spent on pages</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+              <span>Device and browser information</span>
             </li>
           </ul>
         </section>
@@ -44,19 +60,11 @@ export default function Privacy() {
           <ul className="list-none pl-0 space-y-2 text-gray-600">
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>To provide and improve our calculator services</span>
+              <span>To respond to your inquiries through our contact form</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>To respond to your inquiries and support requests</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>To analyze and enhance our website performance</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>To protect our legal rights and prevent misuse</span>
+              <span>To improve our website based on anonymous usage data</span>
             </li>
           </ul>
         </section>
@@ -71,10 +79,9 @@ export default function Privacy() {
         </section>
 
         <section className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-purple-100">
-          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Cookies and Tracking</h2>
-          <p className="text-gray-600">
-            We use cookies and similar tracking technologies to improve your experience on our website. 
-            You can control cookie settings through your browser preferences.
+          <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Google Analytics</h2>
+          <p className="mb-4 text-gray-600">
+            We use Google Analytics to understand how visitors use our website. This service uses cookies to collect anonymous information about your visit. You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on.
           </p>
         </section>
 
@@ -84,19 +91,11 @@ export default function Privacy() {
           <ul className="list-none pl-0 space-y-2 text-gray-600">
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Access your personal information</span>
+              <span>Request access to any personal information we hold about you</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Correct inaccurate data</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Request deletion of your data</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-              <span>Opt-out of marketing communications</span>
+              <span>Request correction of any inaccurate information</span>
             </li>
           </ul>
         </section>

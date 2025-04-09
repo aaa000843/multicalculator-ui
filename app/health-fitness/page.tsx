@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CategoryPage from '@/components/CategoryPage';
 
 export const metadata: Metadata = {
-  title: 'Health & Fitness Calculators | MultiCalculator',
+  title: 'Health & Fitness Calculators | Calcifai',
   description: 'Calculate BMI, calories, body fat, BMR, ideal weight, and pace with our health and fitness calculators. Get accurate measurements for your fitness journey.',
   keywords: 'BMI calculator, calorie calculator, body fat calculator, BMR calculator, ideal weight calculator, pace calculator, fitness calculator, health calculator',
 };

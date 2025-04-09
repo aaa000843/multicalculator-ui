@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CategoryPage from '@/components/CategoryPage';
 
 export const metadata: Metadata = {
-  title: 'Finance Tools & Calculators | MultiCalculator',
+  title: 'Finance Tools & Calculators | Calcifai',
   description: 'Access comprehensive financial planning tools including mortgage, loan, investment, retirement, and tax calculators. Make informed financial decisions with our advanced calculators.',
   keywords: 'financial calculator, mortgage calculator, loan calculator, investment calculator, retirement planning, tax calculator, compound interest, debt payoff, ROI calculator',
 };

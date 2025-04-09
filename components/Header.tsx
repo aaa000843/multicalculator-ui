@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Calculator, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,8 +101,14 @@ const Header = () => {
             href="/" 
             className="flex items-center space-x-2 hover:opacity-90 transition-opacity"
           >
-            <Calculator className="h-8 w-8" />
-            <span className="text-xl font-bold">MultiCalculator</span>
+            <Image 
+              src="/assets/calcifai.jpg" 
+              alt="Calcifai Logo" 
+              width={32} 
+              height={32} 
+              className="rounded-full"
+            />
+            <span className="text-xl font-bold">Calcifai</span>
           </Link>
 
           {/* Desktop Navigation */}

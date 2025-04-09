@@ -321,34 +321,36 @@ export default function IncomeTaxCalculator() {
 
                     <div className="mt-6">
                       <h3 className="font-semibold text-indigo-600 mb-4">Tax Bracket Breakdown</h3>
-                      <div className="overflow-x-auto">
-                        <table className="min-w-full divide-y divide-purple-200">
-                          <thead>
-                            <tr>
-                              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Tax Bracket</th>
-                              <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Rate</th>
-                              <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Tax Amount</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-purple-100">
-                            {results.brackets.map((item, index) => (
-                              <tr key={index} className="hover:bg-purple-50">
-                                <td className="px-4 py-2 text-sm text-gray-600">
-                                  ${item.bracket.min.toLocaleString()} - {item.bracket.max ? `$${item.bracket.max.toLocaleString()}` : 'and up'}
-                                </td>
-                                <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                  {item.bracket.rate}%
-                                </td>
-                                <td className="px-4 py-2 text-sm text-right text-gray-600">
-                                  ${item.taxAmount.toLocaleString(undefined, {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                  })}
-                                </td>
+                      <div className="overflow-x-auto -mx-4 sm:mx-0">
+                        <div className="min-w-[600px] px-4 sm:px-0">
+                          <table className="min-w-full divide-y divide-purple-200">
+                            <thead>
+                              <tr>
+                                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Tax Bracket</th>
+                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Rate</th>
+                                <th className="px-4 py-2 text-right text-sm font-semibold text-gray-600">Tax Amount</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody className="divide-y divide-purple-100">
+                              {results.brackets.map((item, index) => (
+                                <tr key={index} className="hover:bg-purple-50">
+                                  <td className="px-4 py-2 text-sm text-gray-600">
+                                    ${item.bracket.min.toLocaleString()} - {item.bracket.max ? `$${item.bracket.max.toLocaleString()}` : 'and up'}
+                                  </td>
+                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                    {item.bracket.rate}%
+                                  </td>
+                                  <td className="px-4 py-2 text-sm text-right text-gray-600">
+                                    ${item.taxAmount.toLocaleString(undefined, {
+                                      minimumFractionDigits: 2,
+                                      maximumFractionDigits: 2
+                                    })}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
